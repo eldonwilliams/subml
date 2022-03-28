@@ -1,4 +1,4 @@
-import { Token, tokenizeLine, } from "../parser/tokenizer";
+import { Token, tokenizeLine, } from "../lang/tokenizer";
 
 
 it("should tokenize a string", () => {
