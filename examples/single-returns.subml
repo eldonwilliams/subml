@@ -1,0 +1,17 @@
+> true; // This will make the entire file just the value true (Boolean object in JavaScript)
+
+> [
+    100;
+    200;
+    300, 400;
+];
+
+// The above output will become [100,200,300,400] in JavaScript
+// You can also single-return multiple to get an array output
+
+> 100;
+> 200;
+> 300;
+> 400;
+
+// The above will resolve to [100,200,300,400] in JavaScript

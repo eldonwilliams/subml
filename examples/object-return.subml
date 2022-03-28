@@ -1,0 +1,9 @@
+// Want something like JSON? Just return a JSON# object!
+// Any object bracket prefixed with "JSON#" will be parsed using the JSON library in NodeJS
+
+> JSON#{
+    "someConfigValue": false,
+    "someStringValue": "Hello, world!",
+}
+
+// This will become {someConfigValue: false, someStringValue: "Hello, world!"} in JavaScript

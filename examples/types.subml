@@ -1,0 +1,23 @@
+// subml has support for all basic javascript types
+// Objects (JSON), Array, Boolean, Number/Integer, Strings, and functions (functions are defined differently)
+// subml also has support for the EVAL# tag, this allows you to run code and return values
+
+> JSON#{
+    "myJson": "object";
+};
+
+> ARRAY#{
+    100;
+    200;
+    300;
+};
+
+> false;
+
+> 100;
+
+> "Hello, world!";
+
+> FUNCTION# (a, b) -> {
+    return a + b;
+}

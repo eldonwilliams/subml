@@ -1,0 +1,38 @@
+// NOTE: This can be disabled for security reasons. Eval is ONLY recommended if your config is unaccessable/uneditable through a client
+
+// Eval + single-return
+// This will become the system time
+
+> EVAL#{
+    // This is JavaScript code now, comments are parsed pre-eval, keep that in-mind
+    // The return value of the eval is what is given, if undefined, undefined will be the value
+
+    return Date.now();
+};
+
+// Eval in a JSON object
+
+> JSON#{
+    "theTime": EVAL#{ return Date.now(); };
+};
+
+// Eval + JSON object + using the object
+// If a EVAL is called in a JSON object the variable "SELF" is set to that object sub all EVAL fields.
+
+> JSON#{
+    "someKey": "Hello, world!";
+    "someOtherKey": EVAL#{ return SELF.someKey; }; // -> "Hello, world!"
+};
+
+// Eval + JSON object + using object internally + priority
+// You can use a priority to make certain keys EVAL avaliable if you need them
+// Higher priority goes first
+// Default is 1
+
+> SUBML_DATA#{
+    "nonEvalKey": 20;
+    "someEvalKey": EVAL(priority = 2)#{ return SELF.nonEvalKey * 2; };
+    "someOtherEvalKey": EVAL(priority = 1)#{ return SELF.someEvalKey * 3 + SELF.nonEvalKey; };
+};
+
+// Above becomes {nonEvalKey: 20, someEvalKey: 40, someOtherEvalKey: 140}
